@@ -17,10 +17,10 @@ def main():
 
         res = pre.predict([[Glucose, Insulin, Age]])
 
-        if res <= 0:
+        if float(res) <= 0:
             st.title("It's Party Time,you doesn't have diabetes")
 
-        if res >= 1:
+        if float(res) >= 1:
             st.title("Don't Worry You Have diabetes It Can Be cured or removed from you body by medicines")
 
     except ValueError:
