@@ -8,13 +8,13 @@ def main():
     try:
         df = pd.read_csv('diabetes.csv')
         Glucose = st.text_input('Enter Blood Glucose Level: ')
+        insulin = st.text_input('Enter Insulin Level: ')
         Age = st.text_input('Enter Your Age: ')
-
         pre = linear_model.LinearRegression()
 
         pre.fit(df[['Glucose', 'Insulin', 'Age']], df.Outcome)
 
-        res = float(pre.predict([[Glucose,Age]]))
+        res = float(pre.predict([[Glucose,insulin,Age]]))
 
         if float(res) <= 0.0:
             st.title("It's Party Time,you doesn't have diabetes")
